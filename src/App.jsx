@@ -39,7 +39,7 @@ export default function App() {
       <motion.div
         className="mb-6 z-10"
         initial={{ opacity: 0, scale: 0.7 }}
-        animate={{ opacity: 0.7, scale: 1.05 }}
+        animate={{ opacity: 0.8, scale: 1.05 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <img
