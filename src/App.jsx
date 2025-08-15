@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import ProfileImage from './assets/profile.jpg';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { SiLeetcode } from 'react-icons/si';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
@@ -14,7 +15,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-6">
+    <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-4">
 
       {/* Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -84,12 +85,20 @@ export default function App() {
           <FaGithub size={28} />
         </a>
         <a
-          href="https://linkedin.com/in/iakashhhh"
+          href="https://www.linkedin.com/in/akash-sharma-202269246"
           target="_blank"
           className="text-white hover:text-gray-300 transition transform hover:scale-110"
         >
           <FaLinkedin size={28} />
         </a>
+        <a
+           href="https://leetcode.com/u/i_akashhhh/" 
+           target="_blank"
+           className="text-white hover:text-gray-300 transition transform hover:scale-110"
+         >
+            <SiLeetcode size={28} />
+         </a>
+
         <a
           href="mailto:i.akashhhh@gmail.com"
           className="text-white hover:text-gray-300 transition transform hover:scale-110"
