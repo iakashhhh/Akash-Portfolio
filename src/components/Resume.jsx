@@ -12,7 +12,7 @@ export default function Resume() {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="text-4xl font-bold mb-6 text-center bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+      <h2 className="text-4xl font-bold mb-6 text-center bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
         Resume
       </h2>
       <p className="text-lg text-gray-300 mb-6 text-center max-w-2xl">

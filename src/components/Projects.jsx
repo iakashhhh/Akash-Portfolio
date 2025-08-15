@@ -29,7 +29,8 @@ const projects = [
 export default function Projects() {
   return (
     <section id="projects" className="bg-transparent text-white py-20 px-4">
-      <h2 className="text-4xl font-bold text-center mb-12 relative z-10">
+      <h2 className="text-4xl font-bold text-center mb-12 relative z-10 
+    bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
         My Projects
       </h2>
 
