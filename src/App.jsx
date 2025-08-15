@@ -45,7 +45,7 @@ export default function App() {
         <img
           src={ProfileImage}
           alt="Akash Sharma"
-          className="w-48 md:w-60 rounded-xl object-cover shadow-lg border border-white/20"
+          className="w-48 md:w-60 "
         />
       </motion.div>
 
