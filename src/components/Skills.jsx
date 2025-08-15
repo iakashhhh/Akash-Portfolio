@@ -34,7 +34,7 @@ export default function Skills() {
   return (
     <section id="skills" className="bg-black/50 backdrop-blur-sm rounded-lg py-20 px-4 max-w-6xl mx-auto">
       <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
-        My Skills
+        Skills
       </h2>
 
       <motion.div
