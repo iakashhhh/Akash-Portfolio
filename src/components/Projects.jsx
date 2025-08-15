@@ -1,26 +1,35 @@
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+
+// Import your project images from assets
+import EMSImage from "../assets/ems.png";
+import WeatherImage from "../assets/weather.png";
 
 const projects = [
   {
-    title: 'Employee Management System',
-    description: 'A full-stack app to manage employees.',
-    tech: ['HTML','CSS', 'Javascript', 'Netlify'],
-    github: 'https://github.com/iakashhhh/ems',
-    live: 'https://ems-akash.netlify.app',
+    title: "Employee Management System",
+    description: "A full-stack web application to manage employees, track details, and handle CRUD operations.",
+    tech: ["HTML", "CSS", "JavaScript", "Netlify"],
+    github: "https://github.com/iakashhhh/ems",
+    live: "https://ems-akash.netlify.app",
+    image: EMSImage,
   },
   {
-    title: 'Weather Forecast App',
-    description: 'Shows weather updates using APIs.',
-    tech: ['HTML', 'API', 'CSS'],
-    github: 'https://github.com/iakashhhh/weather-forecast',
-    live: 'https://weatherforcast-akash.netlify.app',
+    title: "Weather Forecast App",
+    description: "Displays live weather updates using external APIs with a clean and responsive UI.",
+    tech: ["HTML", "API", "CSS"],
+    github: "https://github.com/iakashhhh/weather-forecast",
+    live: "https://weatherforecast-akash.netlify.app",
+    image: WeatherImage,
   },
 ];
 
 export default function Projects() {
   return (
     <section id="projects" className="bg-transparent text-white py-20 px-4">
-      <h2 className="text-4xl font-bold text-center mb-12 relative z-10">My Projects</h2>
+      <h2 className="text-4xl font-bold text-center mb-12 relative z-10">
+        My Projects
+      </h2>
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10"
@@ -29,9 +38,9 @@ export default function Projects() {
         viewport={{ once: true }}
         variants={{
           hidden: {},
-          visible: { transition: { staggerChildren: 0.2 } }, // Stagger children
+          visible: { transition: { staggerChildren: 0.2 } },
         }}
-      > 
+      >
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -40,38 +49,54 @@ export default function Projects() {
               visible: { opacity: 1, y: 0 },
             }}
             whileHover={{
-              scale: 1.07,
-              boxShadow: '0px 20px 30px rgba(255, 255, 255, 0.2)',
+              scale: 1.05,
+              boxShadow: "0px 15px 40px rgba(255, 255, 255, 0.15)",
             }}
-            className="backdrop-blur-sm bg-black/50 border border-white/20 p-6 rounded-lg transition transform cursor-pointer"
+            className="backdrop-blur-sm bg-black/50 border border-white/20 rounded-xl overflow-hidden shadow-lg transition-all"
           >
-            <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
-            <p className="mb-4">{project.description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-white/20 text-white px-2 py-1 rounded text-sm"
+            {/* Project Image */}
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-48 object-cover"
+            />
+
+            {/* Project Content */}
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+              <p className="mb-4 text-gray-300">{project.description}</p>
+
+              {/* Tech Stack Badges */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.tech.map((tech, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              {/* Buttons */}
+              <div className="flex gap-4">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition"
                 >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <div className="flex gap-4">
-              <a
-                href={project.github}
-                target="_blank"
-                className="underline hover:text-gray-300"
-              >
-                GitHub
-              </a>
-              <a
-                href={project.live}
-                target="_blank"
-                className="underline hover:text-gray-300"
-              >
-                Live
-              </a>
+                  <FaGithub /> GitHub
+                </a>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg transition"
+                >
+                  <FaExternalLinkAlt /> Live Demo
+                </a>
+              </div>
             </div>
           </motion.div>
         ))}

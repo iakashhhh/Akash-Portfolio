@@ -80,30 +80,32 @@ export default function App() {
         <a
           href="https://github.com/iakashhhh"
           target="_blank"
-          className="text-white hover:text-gray-300 transition transform hover:scale-110"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
         >
-          <FaGithub size={28} />
+          <FaGithub size={28} color="#FFFFFF" />
         </a>
         <a
           href="https://www.linkedin.com/in/akash-sharma-202269246"
           target="_blank"
-          className="text-white hover:text-gray-300 transition transform hover:scale-110"
+          rel="noopener noreferrer"
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
         >
-          <FaLinkedin size={28} />
+          <FaLinkedin size={28} color="#0A66C2" />
         </a>
         <a
            href="https://leetcode.com/u/i_akashhhh/" 
            target="_blank"
-           className="text-white hover:text-gray-300 transition transform hover:scale-110"
-         >
-            <SiLeetcode size={28} />
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+        >
+            <SiLeetcode size={28} color="#FFA116" />
          </a>
 
         <a
           href="mailto:i.akashhhh@gmail.com"
-          className="text-white hover:text-gray-300 transition transform hover:scale-110"
-        >
-          <FaEnvelope size={28} />
+            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+          >
+          <FaEnvelope size={28} color="#EA4335" />
         </a>
       </motion.div>
 
