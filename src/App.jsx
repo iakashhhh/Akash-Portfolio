@@ -7,6 +7,8 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import Resume from './components/Resume';
+
 import './index.css';
 
 export default function App() {
@@ -126,6 +128,7 @@ export default function App() {
           <p className="text-white text-lg md:text-xl">
             Hi! I’m Akash Sharma, a passionate Full Stack Web Developer with experience in building dynamic, responsive web applications using React, Node.js, and MongoDB. I love turning ideas into digital experiences and continuously learning new technologies to improve my craft.
           </p>
+
         </motion.section>
 
         {/* View My Work Button with Bouncing Arrow */}
@@ -173,9 +176,10 @@ export default function App() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <Skills />
-      </motion.section>
 
+        <Skills /> 
+      </motion.section> 
+         <Resume />
       {/* Contact Section */}
       <motion.section
         id="contact"
