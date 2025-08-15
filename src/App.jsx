@@ -14,7 +14,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-10">
+    <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-6">
 
       {/* Particle Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -45,7 +45,7 @@ export default function App() {
         <img
           src={ProfileImage}
           alt="Akash Sharma"
-          className="w-48 md:w-60 "
+          className="w-64 md:w-80 "
         />
       </motion.div>
 
