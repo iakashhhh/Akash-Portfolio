@@ -1,14 +1,15 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
-// Import your project images from assets
+// Import your project images
 import EMSImage from "../assets/ems.png";
 import WeatherImage from "../assets/weather.png";
 
 const projects = [
   {
     title: "Employee Management System",
-    description: "A full-stack web application to manage employees, track details, and handle CRUD operations.",
+    description:
+      "A full-stack web application to manage employees, track details, and handle CRUD operations.",
     tech: ["HTML", "CSS", "JavaScript", "Netlify"],
     github: "https://github.com/iakashhhh/ems",
     live: "https://ems-akash.netlify.app",
@@ -16,7 +17,8 @@ const projects = [
   },
   {
     title: "Weather Forecast App",
-    description: "Displays live weather updates using external APIs with a clean and responsive UI.",
+    description:
+      "Displays live weather updates using external APIs with a clean and responsive UI.",
     tech: ["HTML", "API", "CSS"],
     github: "https://github.com/iakashhhh/weather-forecast",
     live: "https://weatherforecast-akash.netlify.app",
@@ -45,21 +47,31 @@ export default function Projects() {
           <motion.div
             key={index}
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, scale: 0.85 }, // start zoomed out
+              visible: { opacity: 1, scale: 1 }, // zoom in
             }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             whileHover={{
               scale: 1.05,
               boxShadow: "0px 15px 40px rgba(255, 255, 255, 0.15)",
             }}
             className="backdrop-blur-sm bg-black/50 border border-white/20 rounded-xl overflow-hidden shadow-lg transition-all"
           >
-            {/* Project Image */}
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-48 object-cover"
-            />
+            {/* Project Image - clickable */}
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block overflow-hidden"
+            >
+              <motion.img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-56 md:h-64 object-cover"
+                whileHover={{ scale: 1.1 }} // image zoom on hover
+                transition={{ duration: 0.4 }}
+              />
+            </a>
 
             {/* Project Content */}
             <div className="p-6">
