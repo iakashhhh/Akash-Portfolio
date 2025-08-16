@@ -19,181 +19,188 @@ export default function App() {
   };
 
   return (
-    <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-4">
-      
-      {/* Navbar */}
+    <>
+      {/* Navbar - Outside main container to avoid z-index conflicts */}
       <Navbar />
+      
+      <div className="relative w-full min-h-screen bg-animated text-white flex flex-col items-center justify-center px-4 overflow-hidden pt-4">
+        
+        {/* Particle Background */}
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          {[...Array(50)].map((_, i) => (
+            <div
+              key={i}
+              className="particle"
+              style={{
+                width: `${Math.random() * 4 + 2}px`,
+                height: `${Math.random() * 4 + 2}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 5}s`,
+                animationDuration: `${Math.random() * 10 + 5}s`,
+                opacity: Math.random() * 0.5 + 0.3,
+              }}
+            ></div>
+          ))}
+        </div>
 
-      {/* Particle Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {[...Array(50)].map((_, i) => (
-          <div
-            key={i}
-            className="particle"
-            style={{
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${Math.random() * 10 + 5}s`,
-              opacity: Math.random() * 0.5 + 0.3,
-            }}
-          ></div>
-        ))}
-      </div>
-
-      {/* Home / Hero Section */}
-      <section id="home" className="w-full flex flex-col items-center justify-center z-10 pt-6">
-        {/* Profile Image */}
-        <motion.div
-          className="mb-6"
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 0.8, scale: 1.05 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <img
-            src={ProfileImage}
-            alt="Akash Sharma"
-            className="w-64 md:w-80"
-          />
-        </motion.div>
-
-        {/* Hero Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-5xl md:text-6xl font-bold mb-4 text-center"
-        >
-          Akash Sharma
-        </motion.h1>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-2xl mb-4 text-center"
-        >
-          Full Stack Web Developer
-        </motion.p>
-
-        {/* Social Links */}
-        <motion.div
-          className="flex gap-6 mb-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <a
-            href="https://github.com/iakashhhh"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+        {/* Home / Hero Section */}
+        <section id="home" className="w-full flex flex-col items-center justify-center relative z-10 pt-20 md:pt-6">
+          {/* Profile Image */}
+          <motion.div
+            className="mb-6"
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 0.8, scale: 1.05 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FaGithub size={28} color="#FFFFFF" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/akash-sharma-202269246"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
-          >
-            <FaLinkedin size={28} color="#0A66C2" />
-          </a>
-          <a
-            href="https://leetcode.com/u/i_akashhhh/"
-            target="_blank"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
-          >
-            <SiLeetcode size={28} color="#FFA116" />
-          </a>
-          <a
-            href="mailto:i.akashhhh@gmail.com"
-            className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
-          >
-            <FaEnvelope size={28} color="#EA4335" />
-          </a>
-        </motion.div>
+            <img
+              src={ProfileImage}
+              alt="Akash Sharma"
+              className="w-64 md:w-80"
+            />
+          </motion.div>
 
-        {/* About/Bio Section */}
+          {/* Hero Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-5xl md:text-6xl font-bold mb-4 text-center"
+          >
+            Akash Sharma
+          </motion.h1>
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl mb-4 text-center"
+          >
+            Full Stack Web Developer
+          </motion.p>
+
+          {/* Social Links */}
+          <motion.div
+            className="flex gap-6 mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <a
+              href="https://github.com/iakashhhh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+            >
+              <FaGithub size={28} color="#FFFFFF" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/akash-sharma-202269246"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+            >
+              <FaLinkedin size={28} color="#0A66C2" />
+            </a>
+            <a
+              href="https://leetcode.com/u/i_akashhhh/"
+              target="_blank"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+            >
+              <SiLeetcode size={28} color="#FFA116" />
+            </a>
+            <a
+              href="mailto:i.akashhhh@gmail.com"
+              className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition transform hover:scale-110 hover:shadow-lg hover:shadow-white/30"
+            >
+              <FaEnvelope size={28} color="#EA4335" />
+            </a>
+          </motion.div>
+
+          {/* About/Bio Section */}
+          <motion.section
+            className="w-full max-w-3xl mb-8 bg-black/50 backdrop-blur-sm rounded-xl p-6 text-center mx-2 md:mx-0"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <p className="text-white text-lg md:text-xl">
+              Hi! I'm Akash Sharma, a passionate Full Stack Web Developer with experience in building dynamic, responsive web applications using React, Node.js, and MongoDB. I love turning ideas into digital experiences and continuously learning new technologies to improve my craft.
+            </p>
+          </motion.section>
+
+          {/* View My Work Button with Bouncing Arrow */}
+          <motion.div
+            className="flex flex-col items-center mb-8"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+          >
+            <motion.a
+              href="#projects"
+              onClick={scrollToProjects}
+              className="px-6 py-3 border border-white rounded hover:bg-white hover:text-black transition"
+            >
+              View My Work
+            </motion.a>
+            <motion.div
+              className="mt-2 text-white text-2xl animate-bounce"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ repeat: Infinity, duration: 1 }}
+            >
+              ↓
+            </motion.div>
+          </motion.div>
+        </section>
+
+        {/* Projects Section */}
         <motion.section
-          className="w-full max-w-3xl mb-8 bg-black/50 backdrop-blur-sm rounded-xl p-6 text-center mx-2 md:mx-0"
+          id="projects"
+          className="w-full py-20 mt-12 relative z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Projects />
+        </motion.section>
+
+        {/* Skills Section */}
+        <motion.section
+          id="skills"
+          className="w-full py-20 relative z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10 mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8 }}
         >
-          <p className="text-white text-lg md:text-xl">
-            Hi! I’m Akash Sharma, a passionate Full Stack Web Developer with experience in building dynamic, responsive web applications using React, Node.js, and MongoDB. I love turning ideas into digital experiences and continuously learning new technologies to improve my craft.
-          </p>
+          <Skills /> 
+        </motion.section> 
 
+        {/* Resume Section */}
+        <div className="relative z-10 mt-12">
+          <Resume />
+        </div>
+
+        {/* Contact Section */}
+        <motion.section
+          id="contact"
+          className="w-full py-20 relative z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10 mt-12"
+          initial={{ opacity: 0, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Contact />
         </motion.section>
 
-        {/* View My Work Button with Bouncing Arrow */}
-        <motion.div
-          className="flex flex-col items-center mb-8"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-        >
-          <motion.a
-            href="#projects"
-            onClick={scrollToProjects}
-            className="px-6 py-3 border border-white rounded hover:bg-white hover:text-black transition"
-          >
-            View My Work
-          </motion.a>
-          <motion.div
-            className="mt-2 text-white text-2xl animate-bounce"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1 }}
-          >
-            ↓
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Projects Section */}
-      <motion.section
-        id="projects"
-        className="w-full py-20 mt-12 z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <Projects />
-      </motion.section>
-
-      {/* Skills Section */}
-      <motion.section
-        id="skills"
-        className="w-full py-20 z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10 mt-12"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-
-        <Skills /> 
-      </motion.section> 
-         <Resume />
-      {/* Contact Section */}
-      <motion.section
-        id="contact"
-        className="w-full py-20 z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10 mt-12"
-        initial={{ opacity: 0, y: 0 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <Contact />
-      </motion.section>
-
-      {/* Footer */}
-      <Footer />
-    </div>
+        {/* Footer */}
+        <div className="relative z-10">
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 }

@@ -6,7 +6,7 @@ export default function Resume() {
   return (
     <motion.section
       id="resume"
-      className="w-full py-12 z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-10 flex flex-col items-center"
+      className="w-full py-1 z-10 bg-black/50 backdrop-blur-sm rounded-xl mx-2 md:mx-1 flex flex-col items-center"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
