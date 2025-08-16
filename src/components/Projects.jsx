@@ -5,7 +5,7 @@ import { useState } from "react";
 // Import your project images
 import EMSImage from "../assets/ems.png";
 import WeatherImage from "../assets/weather.png";
-import PortfolioImage from "../assets/portfolio.png";
+import PortfolioImage from "../assets/Portfolio.png";
 
 const projects = [
   {
